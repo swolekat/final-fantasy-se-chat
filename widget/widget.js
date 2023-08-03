@@ -116,13 +116,13 @@ const createMessageHtml = ({
 
     const textClass = getTextClasses(messageContentsArray);
     const badgeHtml = badges.map(badge => `<img class="badge" src="${badge.url}" />`).join('\n');
-    const portaitNubmer = userId % 42;
+    const portaitNumber = (userId + 24) % 42;
 
     // don't mess with data-message-id, data-user-id or the chat-message class name
     return `
         <div data-message-id="${msgId}" data-user-id="${userId}" class="chat-message ${emoteSize} ${eventClasses} ${textClass}" >
             <div class="profile-section">
-                <img src="" class="profile-picture" />
+                <img class="profile-picture" src="https://swolekat.github.io/final-fantasy-se-chat/assets/portraits/${portaitNumber}.webp"/>
             </div>
             <div class="content-section">
                 <div class="username-section">
@@ -360,7 +360,7 @@ const showMessage = (msgId, html) => {
         const minWidth = $(`${messageElementId} .username-section`).outerWidth();
 
         $(`${messageElementId}`).css({
-            '--dynamicWidth': Math.max(minWidth, maxWidth),
+            '--dynamicWidth': Math.max(minWidth, maxWidth) + 102,
         });
 
         $(messageElementId).addClass('animate');
@@ -501,9 +501,9 @@ const eventListenerToHandlerMap = {
     'raid-latest': onRaid,
     'delete-message': onDeleteMessage,
     'delete-messages': onDeleteMessages,
-    'follower-latest': onFollower,
-    'subscriber-latest': onSubscriber,
-    'cheer-latest': onCheer,
+    // 'follower-latest': onFollower,
+    // 'subscriber-latest': onSubscriber,
+    // 'cheer-latest': onCheer,
 };
 
 window.addEventListener('onEventReceived', obj => {

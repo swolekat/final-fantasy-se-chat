@@ -4,7 +4,7 @@
 
 * {
     font-family: "VT323", Arial, sans-serif;
-    font-size: 36px;
+    font-size: 30px;
     overflow-wrap: break-word;
     margin: 0;
     padding: 0;
@@ -35,10 +35,10 @@ main {
     visibility: hidden;
     position: relative;
     border-radius: 7px;
-    overflow: hidden;
     min-width: 300px;
     max-width: 500px;
     width: var(--dynamicWidth);
+    display: flex;
 
     border: solid 1px #424542;
     box-shadow: 1px 1px #e7dfe7,
@@ -73,6 +73,20 @@ animation: fade reverse .5s,
     animation: fade reverse .5s, up .5s;
 }
 
+.profile-section {
+    width: 100px;
+    padding: 10px;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+}
+
+.content-section {
+
+}
+
 .username-section {
     position: relative;
     z-index: 2;
@@ -87,7 +101,6 @@ animation: fade reverse .5s,
 .badge {
     height: 20px;
     width: 20px;
-    margin-right: 5px;
 }
 
 .message-section {
